@@ -23,14 +23,14 @@
 
 <nav class="lang"><a href="#it">Italiano</a><a href="#en">English</a></nav>
 
-<!-- Testo allineato a app/src/main/assets/privacy_policy.txt: aggiornare insieme -->
+<!-- Testo allineato a docs/privacy-policy.md e app/src/main/assets/privacy_policy.txt: aggiornare insieme -->
 <article id="it" lang="it">
 <h1>Informativa sulla privacy — Morph Audiophile</h1>
-<p class="updated">Ultimo aggiornamento: 13 ottobre 2026</p>
+<p class="updated">Ultimo aggiornamento: 2 novembre 2026</p>
 
 <p>Morph Audiophile è un lettore musicale ad alta fedeltà per Android. Questa informativa spiega quali dati l'app tratta, perché e con chi li condivide.</p>
 
-<p class="box">L'app non richiede un account, non mostra pubblicità e non contiene strumenti di analisi, tracciamento o profilazione.</p>
+<p class="box">L'app non richiede un account, non mostra pubblicità e non contiene strumenti di analisi, tracciamento o profilazione propri. L'unica statistica d'uso è quella anonima che la libreria Google Cast invia a Google quando apri la scelta dell'uscita o trasmetti a un dispositivo Cast (punto 2.e).</p>
 
 <p><strong>Titolare del trattamento:</strong> Paolo (sviluppatore indipendente — MORPH), Italia<br>
 <strong>Contatto per la privacy e l'assistenza:</strong> <a href="mailto:paoloicall@gmail.com">paoloicall@gmail.com</a></p>
@@ -42,65 +42,95 @@
   <li>playlist, preferiti, cronologia e coda di riproduzione;</li>
   <li>impostazioni audio, preset dell'equalizzatore e valori ReplayGain misurati;</li>
   <li>copertine, foto e schede scaricate, conservate in cache per l'uso offline;</li>
-  <li>i rapporti di errore (crash log), mostrati solo a te e mai inviati in automatico.</li>
+  <li>i rapporti di errore (crash log), mostrati solo a te e mai inviati in automatico;</li>
+  <li>le playlist della scheda Streaming ricevute da BubbleUPnP (titoli, artisti, album, durata, qualità dichiarata, indirizzi del proxy di BubbleUPnP sul telefono) e le loro copertine, salvate per vederle anche senza rete;</li>
+  <li>un registro delle ultime riletture delle playlist (ora, identificativo della playlist ed esito), usato solo per la diagnostica.</li>
 </ul>
 <p>L'app legge i file audio solo tramite i permessi che concedi (accesso ai file audio o alle cartelle che scegli). Se elimini un brano dall'app, Android ti chiede conferma prima di cancellarlo. Il file di backup viene creato solo su tua richiesta e salvato o condiviso solo con l'app che scegli tu.</p>
+<p><strong>Backup automatico di Android:</strong> solo le playlist della scheda Streaming e lo stato del ricevitore di rete (identificativo e accensione automatica) entrano nel backup del tuo account Google, gestito da Android, per ritrovarli dopo una reinstallazione o su un telefono nuovo. Nient'altro: libreria, playlist locali, preferiti e impostazioni restano fuori. Puoi disattivarlo nelle impostazioni di backup di Android.</p>
+<p><strong>Diagnostica e report del DAC USB:</strong> "Copia diagnostica DAC" copia negli appunti i descrittori USB, i formati e i comandi del DAC collegato; "Invia report DAC" prepara un testo con il modello del DAC (VID:PID, nomi di produttore e prodotto), i suoi descrittori USB grezzi, le risposte del DAC, il formato scelto, le misure e le righe di log del driver, il modello, il chipset e la versione Android del telefono e la versione di Morph. Non contiene numeri di serie, nomi di file o brani, account, indirizzi di rete né identificativi del telefono. Lo leggi per intero e, solo se tocchi «Invia», va al nostro server (Cloudflare), che lo conserva per far funzionare più DAC. Il server usa la licenza dell'app solo per limitare quanti report manda un'installazione; senza licenza conta l'indirizzo per un giorno, senza conservarlo.</p>
 
 <h2>2. Dati inviati a servizi esterni</h2>
 <p>Alcune funzioni usano Internet. In questi casi l'app invia solo i dati necessari a quella funzione, mai la libreria completa. Come per qualsiasi connessione, il servizio contattato riceve anche l'indirizzo IP del tuo dispositivo.</p>
 
 <h3>a) Copertine online</h3>
-<p>Attive per impostazione predefinita, disattivabili in Impostazioni: per i brani senza copertina vengono inviati artista, titolo e album a Deezer e, se Deezer non la trova, ad Apple iTunes Search.</p>
+<p>Spente finché non le autorizzi nella finestra mostrata alla prima apertura; modificabili in qualsiasi momento in Impostazioni: per i brani senza copertina vengono inviati artista, titolo e album a Deezer e, se Deezer non la trova, ad Apple iTunes Search.</p>
 
 <h3>b) Schede di brani, album e artisti</h3>
-<p>Attive per impostazione predefinita, disattivabili in Impostazioni: vengono inviati i nomi di artista e album a Deezer, MusicBrainz e Wikipedia; foto e immagini vengono scaricate da Deezer e Wikimedia.</p>
+<p>Spente finché non le autorizzi nella finestra mostrata alla prima apertura; modificabili in qualsiasi momento in Impostazioni: vengono inviati i nomi di artista e album a Deezer, MusicBrainz e Wikipedia; foto e immagini vengono scaricate da Deezer e Wikimedia.</p>
 
 <h3>c) Ricerca nella sezione Esplora</h3>
 <p>Il testo che cerchi viene inviato a Deezer.</p>
 
-<h3>d) Identificazione di un brano (solo quando la chiedi tu)</h3>
-<p>Titolo, artista o nome del file vengono inviati a Deezer e Apple iTunes Search. L'audio dei tuoi file non lascia mai il telefono. Il comando "Cerca su Google" apre il browser con titolo e artista.</p>
-
-<h3>e) Radio</h3>
+<h3>d) Radio</h3>
 <ul>
-  <li>l'elenco delle stazioni viene letto dalla directory pubblica radio-browser.info e da elenchi pubblici ospitati su GitHub;</li>
-  <li>loghi e immagini delle stazioni vengono scaricati dai siti delle emittenti, da Wikimedia e da imgur;</li>
+  <li>l'elenco delle stazioni viene letto dalle directory pubbliche radio-browser.info e SHOUTcast (a cui vanno paese, genere o testo cercato) e da elenchi pubblici ospitati su GitHub;</li>
+  <li>loghi e immagini delle stazioni vengono scaricati dai siti delle emittenti e dagli indirizzi indicati dalle directory, da Wikimedia/Wikipedia (per alcune stazioni col loro nome, per trovarne il logo) e da imgur;</li>
   <li>durante l'ascolto il tuo dispositivo si collega direttamente allo stream dell'emittente scelta;</li>
-  <li>per mostrare il brano in onda l'app legge i metadati dello stream, lo stato del server dell'emittente o le API pubbliche di alcune emittenti, e verifica titolo e copertina su Deezer e Apple iTunes Search. Per distinguere musica e parlato l'app analizza l'audio della radio solo sul telefono, senza inviarlo a nessuno. Il microfono non viene mai usato.</li>
+  <li>per mostrare il brano in onda l'app legge solo i dati che trasmette l'emittente: i metadati dello stream e lo stato del server di streaming. Per distinguere musica e parlato l'app analizza l'audio della radio solo sul telefono, senza inviarlo a nessuno. Il microfono non viene mai usato.</li>
 </ul>
 
-<h3>f) Trasmissione ad altri dispositivi (solo quando la avvii tu)</h3>
-<p>Con Google Cast il brano viene inviato al Chromecast o Google TV scelto tramite i servizi Google; con DLNA/UPnP e AirPlay il brano viene inviato al dispositivo scelto solo attraverso la tua rete Wi-Fi locale.</p>
+<h3>e) Trasmissione ad altri dispositivi (solo quando la avvii tu)</h3>
+<p>Con Google Cast il brano viene inviato al Chromecast o Google TV scelto tramite i servizi Google; con DLNA/UPnP e AirPlay il brano viene inviato al dispositivo scelto solo attraverso la tua rete Wi-Fi locale. Dalla prima apertura della scelta dell'uscita, la libreria Google Cast invia a Google eventi anonimi di ricerca dei dispositivi e delle sessioni Cast, con informazioni sul telefono e sull'app; secondo Google non contengono identificativi personali.</p>
 
-<h3>g) Verifica della licenza</h3>
-<p>L'app usa Google Play Integrity per confermare che è un'installazione autentica da Google Play. Un token di verifica viene inviato a Google e al nostro server di licenze (Cloudflare), che non conserva dati personali.</p>
+<h3>f) Verifica della licenza</h3>
+<p>L'app usa Google Play Integrity per confermare che è un'installazione autentica da Google Play. All'avvio, al più una volta a settimana, un token di verifica, il nome del pacchetto e un identificativo casuale dell'installazione (generato dall'app, non è l'identificativo del telefono) vengono inviati a Google e al nostro server di licenze (Cloudflare), che non conserva dati personali. La licenza firmata resta sul telefono per 30 giorni.</p>
+
+<h3>g) Correzione delle cuffie (AutoEQ)</h3>
+<p>L'elenco dei modelli e il profilo che scegli si scaricano dall'archivio pubblico AutoEQ su GitHub; per il profilo, GitHub riceve il nome del modello scelto nell'indirizzo del file.</p>
+
+<h3>h) Streaming di Tidal e Qobuz tramite BubbleUPnP (solo se usi BubbleUPnP)</h3>
+<ul>
+  <li>Morph non si collega a Tidal né a Qobuz, non usa le loro API e non conosce il tuo account, la tua password o il tuo abbonamento. L'accesso ai servizi lo fa l'app BubbleUPnP, separata da Morph e con una propria informativa, con il tuo account;</li>
+  <li>BubbleUPnP manda a Morph i dati dei brani (titolo, artista, album, copertina, qualità) e Morph riproduce l'audio dal proxy di BubbleUPnP sul telefono stesso (127.0.0.1) o nella tua rete locale; nulla passa da server nostri;</li>
+  <li>per tenere aggiornate le playlist Morph passa a BubbleUPnP il loro link pubblico (tidal.com o open.qobuz.com) con la condivisione di Android, e gli invia i comandi che BubbleUPnP stesso mette a disposizione delle altre app (scelta del renderer, avvio del servizio). Non legge e non modifica altri dati di BubbleUPnP;</li>
+  <li>Morph non registra, non scarica e non esporta l'audio in streaming: lo riproduce soltanto, per l'ascolto personale.</li>
+</ul>
+
+<h3>i) NAS e server musicali (SMB, WebDAV, Navidrome/Subsonic, Jellyfin, media server UPnP/DLNA)</h3>
+<ul>
+  <li>Solo se aggiungi un NAS o un server nella scheda Streaming: Morph si collega solo all'indirizzo che scrivi tu o che scegli fra quelli trovati, legge cartelle, album e file musicali e li riproduce. Non usa server nostri né di terzi;</li>
+  <li>la ricerca automatica dei server interroga solo la rete locale (mDNS, SSDP, WS-Discovery, annuncio di Jellyfin);</li>
+  <li>nome utente e indirizzo restano nelle impostazioni dell'app; la password è cifrata con il portachiavi di Android (Android Keystore) e va solo a quel server, per l'accesso. I media server UPnP/DLNA non chiedono né utente né password;</li>
+  <li>per Jellyfin Morph presenta al server un identificativo casuale generato all'installazione (non è l'identificativo del telefono);</li>
+  <li>su tua richiesta Morph copia o sposta file fra il telefono e il server, li rinomina o li elimina alla fonte (dove il server lo permette) e crea o modifica le playlist del server. Rimuovendo la sorgente si cancellano dal telefono indirizzo, nome utente e password.</li>
+</ul>
+
+<h3>j) Ricevitore di rete (UPnP/DLNA e OpenHome)</h3>
+<p>Quando è acceso, Morph si annuncia nella tua rete locale con un nome ("Morph – nome del telefono") e un identificativo, perché app come BubbleUPnP possano trovarlo e mandargli musica. I dispositivi della stessa rete possono vederlo; nulla viene inviato fuori dalla rete locale. Si spegne nelle Impostazioni.</p>
 
 <h2>3. Permessi e accessi</h2>
 <ul>
   <li><strong>File audio:</strong> per trovare e riprodurre la tua musica.</li>
   <li><strong>Notifiche:</strong> per i controlli di riproduzione nella notifica e sulla schermata di blocco.</li>
-  <li><strong>Servizio in primo piano e wake-lock:</strong> per la riproduzione continua a schermo spento.</li>
-  <li><strong>Internet e stato della rete:</strong> per le funzioni online descritte sopra.</li>
+  <li><strong>Servizio in primo piano e wake-lock:</strong> per la riproduzione continua a schermo spento, il ricevitore di rete, l'analisi ReplayGain e le copie da e verso il NAS.</li>
+  <li><strong>Internet, stato della rete e del Wi-Fi, multicast:</strong> per le funzioni online descritte sopra, la trasmissione e il ricevitore nella rete locale, la ricerca dei server.</li>
   <li><strong>Bluetooth:</strong> per riconoscere cuffie e altoparlanti collegati e mostrarne nome e codec.</li>
   <li><strong>Modifica impostazioni audio:</strong> per equalizzatore ed effetti audio.</li>
-  <li><strong>DAC USB:</strong> quando colleghi un DAC, Android ti chiede il permesso di accesso; l'app lo usa solo per inviargli l'audio e regolarne il volume.</li>
+  <li><strong>DAC USB:</strong> quando colleghi un DAC, Android ti chiede il permesso di accesso; l'app lo usa solo per inviargli l'audio, leggerne e regolarne il volume e leggerne i descrittori per la diagnostica.</li>
+  <li><strong>Avvio all'accensione:</strong> per riaccendere il ricevitore di rete dopo l'accensione del telefono o un aggiornamento, solo se deve restare acceso.</li>
+  <li><strong>Mostra sopra le altre app (facoltativo):</strong> per aggiornare le playlist Tidal e Qobuz della scheda Streaming a schermo spento tramite BubbleUPnP, e per avviare BubbleUPnP senza mostrarlo quando fai partire un brano. Al massimo, per un istante, Morph copre lo schermo con la propria immagine; non mostra altro sopra le altre app e non legge niente di ciò che c'è sotto.</li>
   <li><strong>Ricerca vocale</strong> ("Ok Google, riproduci … su Morph"): il riconoscimento della voce è svolto da Google Assistant; l'app riceve solo il testo della richiesta e lo cerca nella libreria sul tuo telefono.</li>
+  <li><strong>Appunti:</strong> quando torni su Morph, l'app controlla se negli appunti c'è un link a una playlist o a un album di Tidal o Qobuz, per aggiungerlo alla scheda Streaming (Android mostra un avviso quando succede). Il testo resta sul telefono: si conserva solo l'ultimo link riconosciuto e il nome della playlist se il testo lo contiene; il resto non viene salvato né inviato.</li>
 </ul>
 <p>L'app non accede a microfono, fotocamera, posizione, contatti né all'identificativo pubblicitario (AD_ID).</p>
 
 <h2>4. Conservazione, cancellazione e controllo</h2>
-<p>I dati locali restano sul dispositivo finché non li cancelli ("Cancella dati" nelle impostazioni di Android) o disinstalli l'app. Copertine e schede online si disattivano in Impostazioni; identificazione dei brani, ricerca, radio e trasmissione funzionano solo quando le usi. Sui nostri server non viene conservato alcun dato personale. I dati inviati ai servizi esterni sono trattati secondo le loro informative (Deezer, Apple, MusicBrainz, Wikimedia, radio-browser.info, Google, Cloudflare).</p>
+<p>I dati locali restano sul dispositivo finché non li cancelli ("Cancella dati" nelle impostazioni di Android) o disinstalli l'app. Le playlist della scheda Streaming e le loro copertine si tolgono anche una per una col cestino nella scheda. Copertine e schede online si disattivano in Impostazioni; ricerca, radio e trasmissione funzionano solo quando le usi. Sui nostri server non viene conservato alcun dato personale. I dati inviati ai servizi esterni sono trattati secondo le loro informative (Deezer, Apple, MusicBrainz, Wikimedia, radio-browser.info, SHOUTcast, GitHub, Google, Cloudflare).</p>
 
 <h2>5. Sicurezza</h2>
-<p>Le connessioni ai servizi di metadati e al server di licenze sono cifrate (HTTPS). Alcune radio trasmettono i loro stream senza cifratura (HTTP): in quel caso è l'emittente a stabilire il tipo di connessione.</p>
+<p>Le connessioni ai servizi di metadati e al server di licenze sono cifrate (HTTPS). Alcune radio trasmettono i loro stream senza cifratura (HTTP): in quel caso è l'emittente a stabilire il tipo di connessione. Nella rete locale la trasmissione DLNA/AirPlay, il ricevitore UPnP e alcuni server o NAS usano connessioni non cifrate, come prevedono i loro protocolli.</p>
 
 <h2>6. Minori</h2>
 <p>L'app non è rivolta a bambini di età inferiore ai 13 anni e non raccoglie consapevolmente loro dati.</p>
 
-<h2>7. I tuoi diritti (GDPR)</h2>
+<h2>7. Servizi di terzi e marchi</h2>
+<p>Tidal, Qobuz e BubbleUPnP sono marchi dei rispettivi titolari. Morph non è affiliato, sponsorizzato né approvato da Tidal, Qobuz o BubbleUPnP. Per ascoltare i loro contenuti servono l'app BubbleUPnP e un abbonamento attivo al servizio, sottoscritto da te; l'uso dei contenuti resta soggetto ai termini di quei servizi, che consentono l'ascolto personale.</p>
+
+<h2>8. I tuoi diritti (GDPR)</h2>
 <p>Gli utenti dell'Unione Europea hanno i diritti previsti dal Regolamento UE 2016/679: accesso, rettifica, cancellazione, limitazione e opposizione, oltre al diritto di presentare reclamo all'autorità di controllo (in Italia, il Garante per la protezione dei dati personali). Le funzioni online si basano sulla tua richiesta o sulla tua scelta di tenerle attive. Per qualsiasi richiesta: <a href="mailto:paoloicall@gmail.com">paoloicall@gmail.com</a>.</p>
 
-<h2>8. Modifiche</h2>
+<h2>9. Modifiche</h2>
 <p>Se questa informativa cambia, la nuova versione sarà disponibile nell'app e su questa pagina, con la data di aggiornamento.</p>
 </article>
 
@@ -108,11 +138,11 @@
 
 <article id="en" lang="en">
 <h1>Privacy Policy — Morph Audiophile</h1>
-<p class="updated">Last updated: October 13, 2026</p>
+<p class="updated">Last updated: November 2, 2026</p>
 
 <p>Morph Audiophile is a high-fidelity music player for Android. This policy explains what data the app processes, why, and who it is shared with.</p>
 
-<p class="box">The app requires no account, shows no ads and contains no analytics, tracking or profiling tools.</p>
+<p class="box">The app requires no account, shows no ads and contains no analytics, tracking or profiling tools of its own. The only usage statistics are the anonymous ones the Google Cast library sends to Google once you open the output picker or cast to a Cast device (section 2.e).</p>
 
 <p><strong>Data controller:</strong> Paolo (independent developer — MORPH), Italy<br>
 <strong>Privacy and support contact:</strong> <a href="mailto:paoloicall@gmail.com">paoloicall@gmail.com</a></p>
@@ -124,65 +154,95 @@
   <li>playlists, favorites, history and playback queue;</li>
   <li>audio settings, equalizer presets and measured ReplayGain values;</li>
   <li>downloaded covers, photos and info pages, cached for offline use;</li>
-  <li>crash reports, shown only to you and never sent automatically.</li>
+  <li>crash reports, shown only to you and never sent automatically;</li>
+  <li>the Streaming tab playlists received from BubbleUPnP (titles, artists, albums, duration, declared quality, addresses of BubbleUPnP's proxy on the phone) and their covers, kept so they show offline;</li>
+  <li>a log of the latest playlist rereads (time, playlist identifier, outcome), used for diagnostics only.</li>
 </ul>
 <p>The app reads audio files only through the permissions you grant (audio files or the folders you pick). If you delete a track from the app, Android asks you to confirm first. Backup files are created only when you ask, and saved or shared only with the app you choose.</p>
+<p><strong>Android automatic backup:</strong> only the Streaming tab playlists and the network receiver state (identifier and automatic start) go into your Google account backup, handled by Android, so they come back after a reinstall or on a new phone. Nothing else: library, local playlists, favorites and settings stay out. You can turn it off in Android's backup settings.</p>
+<p><strong>USB DAC diagnostics and report:</strong> "Copy DAC diagnostics" copies the connected DAC's USB descriptors, formats and controls to the clipboard; "Send DAC report" builds a text with the DAC model (VID:PID, manufacturer and product names), its raw USB descriptors, the DAC's answers, the chosen format, driver measurements and log lines, your phone model, chipset and Android version, and Morph's version. It contains no serial numbers, file or track names, accounts, network addresses or phone identifiers. You read the whole text and, only if you tap Send, it goes to our server (Cloudflare), which keeps it to support more DACs. The server uses the app's license only to limit how many reports an installation sends; without a license it counts the address for one day without storing it.</p>
 
 <h2>2. Data sent to external services</h2>
 <p>Some features use the Internet. They send only what the feature needs, never your whole library. As with any connection, the service contacted also receives your device's IP address.</p>
 
 <h3>a) Online covers</h3>
-<p>On by default, can be turned off in Settings: for tracks without a cover, artist, title and album are sent to Deezer and, if Deezer has none, to Apple iTunes Search.</p>
+<p>Off until you allow them in the window shown at first launch; can be changed any time in Settings: for tracks without a cover, artist, title and album are sent to Deezer and, if Deezer has none, to Apple iTunes Search.</p>
 
 <h3>b) Track, album and artist info</h3>
-<p>On by default, can be turned off in Settings: artist and album names are sent to Deezer, MusicBrainz and Wikipedia; photos and images are downloaded from Deezer and Wikimedia.</p>
+<p>Off until you allow them in the window shown at first launch; can be changed any time in Settings: artist and album names are sent to Deezer, MusicBrainz and Wikipedia; photos and images are downloaded from Deezer and Wikimedia.</p>
 
 <h3>c) Explore search</h3>
 <p>What you type is sent to Deezer.</p>
 
-<h3>d) Track identification (only when you ask)</h3>
-<p>Title, artist or file name are sent to Deezer and Apple iTunes Search. The audio of your files never leaves the phone. "Search on Google" opens your browser with the title and artist.</p>
-
-<h3>e) Radio</h3>
+<h3>d) Radio</h3>
 <ul>
-  <li>the station list comes from the public radio-browser.info directory and from public lists hosted on GitHub;</li>
-  <li>station logos and images are downloaded from broadcaster websites, Wikimedia and imgur;</li>
+  <li>the station list comes from the public radio-browser.info and SHOUTcast directories (which receive the country, genre or search text) and from public lists hosted on GitHub;</li>
+  <li>station logos and images are downloaded from broadcaster websites and the addresses given by the directories, Wikimedia/Wikipedia (for some stations their name, to find the logo) and imgur;</li>
   <li>while listening, your device connects directly to the chosen station's stream;</li>
-  <li>to show the song on air the app reads the stream metadata, the broadcaster's server status or some broadcasters' public APIs, and checks title and cover on Deezer and Apple iTunes Search. To tell music from speech the app analyzes the radio audio on the phone only, without sending it anywhere. The microphone is never used.</li>
+  <li>to show the song on air the app reads only what the broadcaster transmits: the stream metadata and the streaming server status. To tell music from speech the app analyzes the radio audio on the phone only, without sending it anywhere. The microphone is never used.</li>
 </ul>
 
-<h3>f) Casting to other devices (only when you start it)</h3>
-<p>With Google Cast the track is sent to the chosen Chromecast or Google TV through Google's services; with DLNA/UPnP and AirPlay the track is sent to the chosen device only over your local Wi-Fi network.</p>
+<h3>e) Casting to other devices (only when you start it)</h3>
+<p>With Google Cast the track is sent to the chosen Chromecast or Google TV through Google's services; with DLNA/UPnP and AirPlay the track is sent to the chosen device only over your local Wi-Fi network. Once you open the output picker, the Google Cast library sends Google anonymous device-discovery and Cast session events with phone and app information; according to Google they contain no personal identifiers.</p>
 
-<h3>g) License check</h3>
-<p>The app uses Google Play Integrity to confirm it is a genuine install from Google Play. A verification token is sent to Google and to our license server (Cloudflare), which stores no personal data.</p>
+<h3>f) License check</h3>
+<p>The app uses Google Play Integrity to confirm it is a genuine install from Google Play. At launch, at most once a week, a verification token, the package name and a random installation identifier (generated by the app, not the phone's identifier) are sent to Google and to our license server (Cloudflare), which stores no personal data. The signed license stays on the phone for 30 days.</p>
+
+<h3>g) Headphone correction (AutoEQ)</h3>
+<p>The model list and the profile you pick are downloaded from the public AutoEQ repository on GitHub; for the profile, GitHub receives the chosen model name in the file address.</p>
+
+<h3>h) Tidal and Qobuz streaming through BubbleUPnP (only if you use BubbleUPnP)</h3>
+<ul>
+  <li>Morph does not connect to Tidal or Qobuz, does not use their APIs and does not know your account, password or subscription. The BubbleUPnP app, separate from Morph and with its own privacy policy, accesses the services with your account;</li>
+  <li>BubbleUPnP sends Morph track data (title, artist, album, cover, quality) and Morph plays the audio from BubbleUPnP's proxy on the same phone (127.0.0.1) or on your local network; nothing goes through our servers;</li>
+  <li>to keep playlists up to date Morph hands BubbleUPnP their public link (tidal.com or open.qobuz.com) through Android sharing, and sends it the commands BubbleUPnP offers to other apps (renderer selection, service start). It does not read or change any other BubbleUPnP data;</li>
+  <li>Morph does not record, download or export streamed audio: it only plays it, for personal listening.</li>
+</ul>
+
+<h3>i) NAS and music servers (SMB, WebDAV, Navidrome/Subsonic, Jellyfin, UPnP/DLNA media servers)</h3>
+<ul>
+  <li>Only if you add a NAS or server in the Streaming tab: Morph connects only to the address you type or pick among those found, reads folders, albums and music files and plays them. No server of ours or of third parties is involved;</li>
+  <li>server discovery only queries your local network (mDNS, SSDP, WS-Discovery, Jellyfin announcement);</li>
+  <li>user name and address stay in the app settings; the password is encrypted with the Android Keystore and only goes to that server, to log in. UPnP/DLNA media servers need no user name or password;</li>
+  <li>for Jellyfin, Morph presents a random identifier generated at install time (not the phone's identifier);</li>
+  <li>when you ask, Morph copies or moves files between the phone and the server, renames or deletes them at the source (where the server allows it) and creates or edits the server's playlists. Removing the source deletes its address, user name and password from the phone.</li>
+</ul>
+
+<h3>j) Network receiver (UPnP/DLNA and OpenHome)</h3>
+<p>When it is on, Morph announces itself on your local network with a name ("Morph – phone name") and an identifier so apps such as BubbleUPnP can find it and send it music. Devices on the same network can see it; nothing leaves the local network. It can be turned off in Settings.</p>
 
 <h2>3. Permissions and access</h2>
 <ul>
   <li><strong>Audio files:</strong> to find and play your music.</li>
   <li><strong>Notifications:</strong> for playback controls in the notification and on the lock screen.</li>
-  <li><strong>Foreground service and wake lock:</strong> for continuous playback with the screen off.</li>
-  <li><strong>Internet and network state:</strong> for the online features described above.</li>
+  <li><strong>Foreground service and wake lock:</strong> for continuous playback with the screen off, the network receiver, ReplayGain analysis and copies to and from the NAS.</li>
+  <li><strong>Internet, network and Wi-Fi state, multicast:</strong> for the online features described above, casting and the receiver on the local network, server discovery.</li>
   <li><strong>Bluetooth:</strong> to recognize connected headphones and speakers and show their name and codec.</li>
   <li><strong>Modify audio settings:</strong> for the equalizer and audio effects.</li>
-  <li><strong>USB DAC:</strong> when you connect a DAC, Android asks for your permission; the app uses it only to send audio to the DAC and set its volume.</li>
+  <li><strong>USB DAC:</strong> when you connect a DAC, Android asks for your permission; the app uses it only to send audio to the DAC, read and set its volume and read its descriptors for diagnostics.</li>
+  <li><strong>Start at boot:</strong> to turn the network receiver back on after a restart or an update, only if it should stay on.</li>
+  <li><strong>Display over other apps (optional):</strong> to update the Streaming tab's Tidal and Qobuz playlists through BubbleUPnP while the screen is off, and to start BubbleUPnP unseen when you play a track. At most Morph briefly covers the screen with its own image; it shows nothing else over other apps and reads nothing underneath.</li>
   <li><strong>Voice search</strong> ("Ok Google, play … on Morph"): speech recognition is done by Google Assistant; the app receives only the text of the request and searches it in the library on your phone.</li>
+  <li><strong>Clipboard:</strong> when you return to Morph, the app checks whether the clipboard holds a Tidal or Qobuz playlist or album link, to add it to the Streaming tab (Android shows a notice). The text stays on the phone: only the last recognized link is kept, plus the playlist name if the text contains it; nothing else is stored or sent.</li>
 </ul>
 <p>The app does not access the microphone, camera, location, contacts or the advertising ID (AD_ID).</p>
 
 <h2>4. Retention, deletion and control</h2>
-<p>Local data stays on the device until you clear it ("Clear data" in Android settings) or uninstall the app. Online covers and info pages can be turned off in Settings; track identification, search, radio and casting work only when you use them. No personal data is stored on our servers. Data sent to external services is handled under their own privacy policies (Deezer, Apple, MusicBrainz, Wikimedia, radio-browser.info, Google, Cloudflare).</p>
+<p>Local data stays on the device until you clear it ("Clear data" in Android settings) or uninstall the app. Streaming tab playlists and their covers can also be removed one by one with the bin in the tab. Online covers and info pages can be turned off in Settings; search, radio and casting work only when you use them. No personal data is stored on our servers. Data sent to external services is handled under their own privacy policies (Deezer, Apple, MusicBrainz, Wikimedia, radio-browser.info, SHOUTcast, GitHub, Google, Cloudflare).</p>
 
 <h2>5. Security</h2>
-<p>Connections to metadata services and to the license server are encrypted (HTTPS). Some radio stations broadcast unencrypted (HTTP) streams: in that case the broadcaster decides the connection type.</p>
+<p>Connections to metadata services and to the license server are encrypted (HTTPS). Some radio stations broadcast unencrypted (HTTP) streams: in that case the broadcaster decides the connection type. On the local network, DLNA/AirPlay casting, the UPnP receiver and some servers or NAS use unencrypted connections, as their protocols provide.</p>
 
 <h2>6. Children</h2>
 <p>The app is not directed to children under 13 and does not knowingly collect their data.</p>
 
-<h2>7. Your rights (GDPR)</h2>
+<h2>7. Third-party services and trademarks</h2>
+<p>Tidal, Qobuz and BubbleUPnP are trademarks of their respective owners. Morph is not affiliated with, sponsored or endorsed by Tidal, Qobuz or BubbleUPnP. Listening to their content requires the BubbleUPnP app and an active subscription taken out by you; use of the content remains subject to those services' terms, which allow personal listening.</p>
+
+<h2>8. Your rights (GDPR)</h2>
 <p>EU users have the rights granted by Regulation (EU) 2016/679: access, rectification, erasure, restriction and objection, and the right to lodge a complaint with a supervisory authority (in Italy, the Garante per la protezione dei dati personali). Online features rely on your request or on your choice to keep them on. For any request: <a href="mailto:paoloicall@gmail.com">paoloicall@gmail.com</a>.</p>
 
-<h2>8. Changes</h2>
+<h2>9. Changes</h2>
 <p>If this policy changes, the new version will be available in the app and on this page, with its update date.</p>
 </article>
 
